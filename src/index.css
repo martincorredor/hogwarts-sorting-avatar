@@ -1,68 +1,171 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Harry Potter Themed Colors */
+    --background: 220 45% 6%;
+    --foreground: 48 87% 85%;
+
+    --card: 220 35% 8%;
+    --card-foreground: 48 87% 85%;
+
+    --popover: 220 35% 8%;
+    --popover-foreground: 48 87% 85%;
+
+    --primary: 45 85% 55%;
+    --primary-foreground: 220 45% 6%;
+
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 48 87% 85%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 37 84% 42%;
+    --accent-foreground: 48 87% 85%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 48 87% 85%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 15%;
+    --ring: 45 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Magical gradients and effects */
+    --gradient-magical: linear-gradient(135deg, hsl(220 45% 6%), hsl(220 35% 12%), hsl(220 45% 6%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 55%), hsl(37 84% 42%));
+    --glow-gold: 0 0 30px hsl(45 85% 55% / 0.5);
+    --shadow-magical: 0 25px 50px -12px hsl(220 45% 6% / 0.8);
+    
+    /* House colors */
+    --gryffindor: 0 85% 60%;
+    --gryffindor-secondary: 45 100% 50%;
+    --slytherin: 120 60% 35%;
+    --slytherin-secondary: 210 100% 90%;
+    --ravenclaw: 210 85% 45%;
+    --ravenclaw-secondary: 37 84% 42%;
+    --hufflepuff: 45 85% 55%;
+    --hufflepuff-secondary: 220 15% 20%;
+
+    --sidebar-background: 220 35% 8%;
+    --sidebar-foreground: 48 87% 85%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 220 45% 6%;
+    --sidebar-accent: 220 25% 15%;
+    --sidebar-accent-foreground: 48 87% 85%;
+    --sidebar-border: 220 25% 20%;
+    --sidebar-ring: 45 85% 55%;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    /* Keep same Harry Potter theme for dark mode */
+    --background: 220 45% 4%;
+    --foreground: 48 87% 90%;
+    --card: 220 35% 6%;
+    --card-foreground: 48 87% 90%;
+    --popover: 220 35% 6%;
+    --popover-foreground: 48 87% 90%;
+    --primary: 45 85% 60%;
+    --primary-foreground: 220 45% 4%;
+    --secondary: 220 25% 12%;
+    --secondary-foreground: 48 87% 90%;
+    --muted: 220 25% 8%;
+    --muted-foreground: 220 15% 70%;
+    --accent: 37 84% 45%;
+    --accent-foreground: 48 87% 90%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 48 87% 90%;
+    --border: 220 25% 18%;
+    --input: 220 25% 12%;
+    --ring: 45 85% 60%;
+    --sidebar-background: 220 35% 6%;
+    --sidebar-foreground: 48 87% 90%;
+    --sidebar-primary: 45 85% 60%;
+    --sidebar-primary-foreground: 220 45% 4%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 48 87% 90%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 45 85% 60%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cormorant;
+    background: var(--gradient-magical);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel;
+  }
+
+  /* Custom animations for magical effects */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px hsl(var(--primary) / 0.5); }
+    50% { text-shadow: 0 0 30px hsl(var(--primary) / 0.8), 0 0 40px hsl(var(--primary) / 0.5); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .glow-text {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .magical-border {
+    position: relative;
+    background: linear-gradient(45deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .magical-border::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, hsl(var(--primary)), transparent, hsl(var(--accent)), transparent, hsl(var(--primary)));
+    border-radius: inherit;
+    z-index: -1;
+    animation: shimmer 3s linear infinite;
+    background-size: 200% 200%;
+  }
+
+  .house-gryffindor {
+    background: linear-gradient(135deg, hsl(var(--gryffindor)), hsl(var(--gryffindor-secondary)));
+  }
+
+  .house-slytherin {
+    background: linear-gradient(135deg, hsl(var(--slytherin)), hsl(var(--slytherin-secondary)));
+  }
+
+  .house-ravenclaw {
+    background: linear-gradient(135deg, hsl(var(--ravenclaw)), hsl(var(--ravenclaw-secondary)));
+  }
+
+  .house-hufflepuff {
+    background: linear-gradient(135deg, hsl(var(--hufflepuff)), hsl(var(--hufflepuff-secondary)));
   }
 }
