@@ -149,7 +149,7 @@
     background: linear-gradient(45deg, hsl(var(--primary)), transparent, hsl(var(--accent)), transparent, hsl(var(--primary)));
     border-radius: inherit;
     z-index: -1;
-    animation: shimmer 3s linear infinite;
+    /* animation: shimmer 3s linear infinite; */
     background-size: 200% 200%;
   }
 
