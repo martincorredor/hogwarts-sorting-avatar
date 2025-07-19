@@ -26,7 +26,6 @@ const Quiz = ({ userName, onRestart }: QuizProps) => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // Quiz completado, mostrar loading y luego resultados
       setIsLoading(true);
       
       setTimeout(() => {
@@ -34,7 +33,7 @@ const Quiz = ({ userName, onRestart }: QuizProps) => {
         setUserHouse(calculatedHouse);
         setIsLoading(false);
         setShowResults(true);
-      }, 3000); // 3 segundos de loading
+      }, 3000);
     }
   };
 

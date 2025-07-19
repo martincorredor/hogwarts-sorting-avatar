@@ -13,6 +13,7 @@ export interface House {
   description: string;
   traits: string[];
   colors: string[];
+  videoId?: string;
 }
 
 export const questions: Question[] = [
@@ -85,6 +86,7 @@ export const houses: Record<string, House> = {
     description: "Los miembros de Gryffindor son conocidos por su valentía, coraje y determinación.",
     traits: ["Valiente", "Audaz", "Caballeroso", "Temerario"],
     colors: ["Rojo", "Dorado"],
+    videoId:'9261866bc31d42678262ac4e41ade4e0',
   },
   slytherin: {
     name: "Slytherin",
@@ -92,6 +94,7 @@ export const houses: Record<string, House> = {
     description: "Los miembros de Slytherin son ambiciosos, astutos y determinados a alcanzar sus objetivos.",
     traits: ["Ambicioso", "Astuto", "Determinado", "Ingenioso"],
     colors: ["Verde", "Plateado"],
+    videoId: '8224aa17a69f4cccb1487c76e48a86ee',
   },
   ravenclaw: {
     name: "Ravenclaw",
@@ -99,6 +102,7 @@ export const houses: Record<string, House> = {
     description: "Los miembros de Ravenclaw valoran la inteligencia, el conocimiento y la creatividad.",
     traits: ["Inteligente", "Sabio", "Creativo", "Curioso"],
     colors: ["Azul", "Bronce"],
+    videoId: 'cafbce05c8aa4824bb556b49cb009840',
   },
   hufflepuff: {
     name: "Hufflepuff",
@@ -106,6 +110,7 @@ export const houses: Record<string, House> = {
     description: "Los miembros de Hufflepuff son leales, trabajadores y valoran la justicia y la igualdad.",
     traits: ["Leal", "Trabajador", "Justo", "Paciente"],
     colors: ["Amarillo", "Negro"],
+    videoId: '6c386eafb56b4861abed14138d2f0f14',
   },
 };
 
