@@ -16,7 +16,7 @@ const QuestionCard = ({ question, onAnswer }: QuestionCardProps) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full max-w-2xl mx-auto"
     >
-      <div className="magical-border rounded-xl p-8 bg-card/50 backdrop-blur-sm">
+      <div className=" rounded-xl p-8 bg-card/50 backdrop-blur-sm">
         <motion.h2
           className="text-2xl font-bold text-center mb-8 text-foreground"
           initial={{ y: 20, opacity: 0 }}

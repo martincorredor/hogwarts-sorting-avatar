@@ -16,7 +16,6 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loadingVideo, setLoadingVideo] = useState(true);
 
-
   useEffect(() => {
     const fetchVideo = async () => {
       try {
@@ -45,7 +44,7 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
   const houseClass = `house-${house}`;
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className=" min-h-screen flex items-center justify-center relative overflow-hidden">
       <ParticlesBackground />
 
       <motion.div
@@ -55,13 +54,13 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
         className="relative z-10 text-center max-w-2xl mx-auto px-6"
       >
         <motion.div
-          className="magical-border rounded-2xl p-8 bg-card/50 backdrop-blur-sm"
+          className="rounded-2xl p-8 backdrop-blur-sm"
           initial={{ y: 50 }}
           animate={{ y: 0 }}
           transition={{ delay: 0.3 }}
         >
           <motion.h1
-            className="text-4xl font-bold mb-4 glow-text"
+            className="text-4xl font-bold glow-text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -70,17 +69,17 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
           </motion.h1>
 
           <motion.div
-            className={`${houseClass} text-white p-6 rounded-xl mb-6`}
+            className={`${houseClass} text-white p-6 rounded-xl`}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.7, type: 'spring' }}
           >
-            <h2 className="text-5xl font-bold mb-2">{houseData.name}</h2>
+            <h2 className="text-5xl font-bold ">{houseData.name}</h2>
             <p className="text-xl opacity-90">Tu casa en Hogwarts</p>
           </motion.div>
 
           <motion.p
-            className="text-lg text-muted-foreground mb-6"
+            className="text-lg mb-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
@@ -89,7 +88,7 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
           </motion.p>
 
           <motion.div
-            className="mb-8"
+            className="mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
@@ -121,7 +120,7 @@ const ResultScreen = ({ userName, house, onRestart }: ResultScreenProps) => {
               onClick={onRestart}
               variant="magical"
               size="lg"
-              className="w-full h-14 text-lg font-semibold"
+              className=" h-14 text-lg font-semibold"
             >
               Tomar el Quiz Nuevamente
             </Button>
